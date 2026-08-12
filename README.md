@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Peacemaker Safety Training — website
 
-## Getting Started
+Next.js (App Router) + TypeScript + Tailwind CSS rebuild of peacemakersafetytraining.com,
+built to deploy on Vercel.
 
-First, run the development server:
+## Pages
+
+- `/` — Home
+- `/about` — About
+- `/training` — Training offerings
+- `/safety-check` — 15-question church safety readiness quiz with scoring
+
+## Local development
 
 ```bash
+npm install
+cp .env.local.example .env.local   # fill in real values, see below
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Without real values in `.env.local`, both forms still work end-to-end in the browser —
+the API routes just log a warning and skip the email/sheet step, so you can develop the
+UI without live credentials.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Forms
 
-## Learn More
+Both the contact form (Home/About/Training) and the Safety Check quiz post to their own
+API route (`/api/contact`, `/api/safety-check`), which both call the single
+`src/lib/submitLead.ts` helper. That helper:
 
-To learn more about Next.js, take a look at the following resources:
+1. Emails a notification via **Resend**.
+2. Appends a row to a **Google Sheet**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Swapping in a real database later (e.g. for event RSVPs) means adding a branch inside
+`submitLead.ts`, not touching the forms or routes themselves.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### One-time setup the site owner needs to do
 
-## Deploy on Vercel
+**Resend (email notifications)**
+1. Create an account at [resend.com](https://resend.com).
+2. Verify a sending domain (recommended) or use the sandbox `onboarding@resend.dev`
+   sender while testing.
+3. Create an API key.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Google Sheets (spreadsheet copy of submissions)**
+1. In [Google Cloud Console](https://console.cloud.google.com), create/reuse a project
+   and enable the **Google Sheets API**.
+2. Create a **Service Account**, then generate a JSON key for it.
+3. Create a Google Sheet with two tabs named exactly `Contact` and `Safety Check`.
+4. Share that Sheet with the service account's email address (Editor access).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Fill the resulting values into `.env.local` for local dev — see
+`.env.local.example` for the full list and where each value comes from.
+
+## Deploying to Vercel
+
+1. Push this repo to GitHub.
+2. In the Vercel dashboard, "Add New Project" → import the GitHub repo. Vercel
+   auto-detects Next.js, no config needed.
+3. Add the same environment variables from `.env.local` in the Vercel project's
+   Settings → Environment Variables (Production + Preview).
+4. Deploy. Once it's live on the `*.vercel.app` URL, connect the
+   `peacemakersafetytraining.com` domain under Settings → Domains, then update DNS at
+   your registrar per Vercel's instructions.
+
+## Project structure
+
+- `src/app/*` — pages and API routes
+- `src/components/*` — `Header`, `Footer`, `ContactForm`, `SafetyCheckForm`
+- `src/lib/trainingOfferings.ts` — training offering content (edit here to add/change a course)
+- `src/lib/safetyCheckQuestions.ts` — the 15 quiz questions, scoring weights, and result tiers
+- `src/lib/submitLead.ts` — shared form-submission handler (email + sheet)
