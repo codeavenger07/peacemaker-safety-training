@@ -16,7 +16,7 @@ export const trainingOfferings: TrainingOffering[] = [
     details: [
       "An on-site walkthrough of your building, entrances, and gathering spaces to spot gaps before they become problems.",
       "A conversation with leadership about current plans, equipment, and who's responsible for what during an emergency.",
-      "A written, practical plan your church can actually implement — not a generic checklist.",
+      "A written, practical plan your church can actually implement, not a generic checklist.",
       "Recommendations for which training your team needs most, in what order.",
     ],
   },
@@ -24,7 +24,7 @@ export const trainingOfferings: TrainingOffering[] = [
     slug: "stop-the-bleed",
     title: "Stop the Bleed",
     description:
-      "The Stop the Bleed course prepares your church to act quickly in severe bleeding emergencies. Participants learn practical skills—direct pressure, wound packing, and tourniquet use—to save lives until professional help arrives.",
+      "The Stop the Bleed course prepares your church to act quickly in severe bleeding emergencies. Participants learn practical skills such as direct pressure, wound packing, and tourniquet use to save lives until professional help arrives.",
     audience: "Safety teams and anyone who wants to be ready to act",
     details: [
       "Hands-on practice applying direct pressure, packing a wound, and using a tourniquet correctly.",
@@ -54,7 +54,7 @@ export const trainingOfferings: TrainingOffering[] = [
     audience: "Anyone who wants practical, everyday first aid skills",
     details: [
       "How to recognize and respond to common injuries and medical emergencies.",
-      "When and how to call for help — and what to do while you wait.",
+      "When and how to call for help and what to do while you wait.",
       "Basic wound care, splinting, and handling medical emergencies like fainting or seizures.",
       "Based on the American Heart Association Heartsaver curriculum.",
     ],
@@ -68,7 +68,7 @@ export const trainingOfferings: TrainingOffering[] = [
     details: [
       "A relaxed, non-certification introduction to CPR and AED basics — great for small groups and families.",
       "Practice on training manikins in a low-pressure group setting.",
-      "No prerequisite knowledge needed — built for people who've never taken a CPR class before.",
+      "No prerequisite knowledge needed as it's built for people who've never taken a CPR class before.",
       "A great starting point before committing to a certified course.",
     ],
   },
