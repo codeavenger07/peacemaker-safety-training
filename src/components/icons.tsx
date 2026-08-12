@@ -107,6 +107,47 @@ export function UserIcon({ className = base }: IconProps) {
   );
 }
 
+export function AwardIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className}>
+      <circle cx="12" cy="9" r="5.5" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 13.5 7.5 20l4.5-2.3 4.5 2.3-1.5-6.5" />
+    </svg>
+  );
+}
+
+export function TargetIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className}>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4.3" />
+      <circle cx="12" cy="12" r=".8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function FlameIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 21c3 0 5.5-2.2 5.5-5.5 0-2.4-1.3-3.8-2.3-5 .1 1.7-.6 2.5-1.3 2 .6-2.7-.6-5.5-2.9-8-.6 2.7-2.5 4-3.5 6-.7 1.4-1 2.5-1 3.5C6.5 18.8 9 21 12 21Z"
+      />
+    </svg>
+  );
+}
+
+export function ChurchIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className}>
+      <path strokeLinecap="round" d="M12 3v3M10.5 4.5h3" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5 5 11v9h14v-9L12 6.5Z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10 20v-5h4v5" />
+    </svg>
+  );
+}
+
 export const trainingIcons: Record<string, (props: IconProps) => ReactElement> = {
   "church-safety-assessment": ClipboardCheckIcon,
   "stop-the-bleed": BandageIcon,
