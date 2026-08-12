@@ -51,7 +51,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <div className="border-t border-white/10 px-6 py-5 text-center text-xs text-navy-100/50">
+      <div className="border-t border-white/10 px-6 pt-5 pb-24 text-center text-xs text-navy-100/50 lg:pb-5">
         © {new Date().getFullYear()} Peacemaker Safety Training. All rights reserved.
       </div>
     </footer>

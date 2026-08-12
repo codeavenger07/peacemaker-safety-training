@@ -16,7 +16,7 @@ const HIGHLIGHTS = [
 export default function HomePage() {
   return (
     <>
-      <section className="relative flex min-h-[calc(100dvh-65px)] flex-col overflow-hidden bg-navy-950">
+      <section className="relative flex min-h-dvh flex-col overflow-hidden bg-navy-950 lg:min-h-[calc(100dvh-65px)]">
         <div
           className="pointer-events-none absolute inset-0"
           style={{

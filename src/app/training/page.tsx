@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function TrainingPage() {
   return (
     <section className="mx-auto max-w-4xl px-6 py-16 sm:py-20">
-      <Reveal className="text-center">
+      <Reveal>
         <p className="text-sm font-semibold uppercase tracking-wide text-red-600">What we offer</p>
         <h1 className="mt-2 text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">Training</h1>
         <p className="mt-3 text-navy-800/75">

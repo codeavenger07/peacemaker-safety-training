@@ -77,7 +77,7 @@ export default function SafetyCheckForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-10">
-      <div className="sticky top-[65px] z-10 -mx-6 bg-[var(--background)]/90 px-6 py-3 backdrop-blur">
+      <div className="sticky top-0 z-10 -mx-6 bg-[var(--background)]/90 px-6 py-3 backdrop-blur lg:top-[65px]">
         <div className="flex items-center justify-between text-xs font-semibold text-navy-800/70">
           <span>
             {answeredCount} of {safetyCheckQuestions.length} answered

@@ -88,6 +88,25 @@ export function AlertTriangleIcon({ className = base }: IconProps) {
   );
 }
 
+export function HomeIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 11.5 12 4l8 7.5" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 10v9.5h12V10" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10 19.5v-6h4v6" />
+    </svg>
+  );
+}
+
+export function UserIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className={className}>
+      <circle cx="12" cy="8" r="3.5" />
+      <path strokeLinecap="round" d="M4.5 20c1-4 4-6 7.5-6s6.5 2 7.5 6" />
+    </svg>
+  );
+}
+
 export const trainingIcons: Record<string, (props: IconProps) => ReactElement> = {
   "church-safety-assessment": ClipboardCheckIcon,
   "stop-the-bleed": BandageIcon,
