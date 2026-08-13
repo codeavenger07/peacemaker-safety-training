@@ -42,12 +42,18 @@ async function sendEmail(submission: LeadSubmission): Promise<void> {
     </table>
   `;
 
-  await resend.emails.send({
+  const { data, error } = await resend.emails.send({
     from,
     to,
     subject: `New ${submission.source} submission — Peacemaker Safety Training`,
     html,
   });
+
+  console.log(`[submitLead] Resend response for "${submission.source}":`, JSON.stringify({ id: data?.id, error }));
+
+  if (error) {
+    throw new Error(`Resend failed to send email: ${error.message}`);
+  }
 }
 
 async function appendToSheet(submission: LeadSubmission): Promise<void> {

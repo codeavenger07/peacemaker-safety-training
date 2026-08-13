@@ -17,7 +17,9 @@ export async function POST(req: NextRequest) {
       fields: [
         { label: "First name", value: String(body.firstName ?? "") },
         { label: "Last name", value: String(body.lastName ?? "") },
-        { label: "Address", value: String(body.address ?? "") },
+        { label: "Church name", value: String(body.churchName ?? "") },
+        { label: "City", value: String(body.city ?? "") },
+        { label: "State", value: String(body.state ?? "") },
         { label: "Email", value: String(body.email ?? "") },
         { label: "Phone", value: String(body.phone ?? "") },
         { label: "Additional information", value: String(body.message ?? "") },

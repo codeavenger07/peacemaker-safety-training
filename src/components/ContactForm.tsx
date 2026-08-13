@@ -48,7 +48,11 @@ export default function ContactForm() {
         <Field label="First name" name="firstName" required />
         <Field label="Last name" name="lastName" />
       </div>
-      <Field label="Address" name="address" />
+      <div className="grid gap-4 sm:grid-cols-3">
+        <Field label="Church name" name="churchName" />
+        <Field label="City" name="city" />
+        <Field label="State" name="state" />
+      </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Email" name="email" type="email" required />
         <Field label="Phone" name="phone" type="tel" />

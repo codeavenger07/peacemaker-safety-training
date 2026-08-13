@@ -135,7 +135,7 @@ export default function HomePage() {
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-wide text-red-500">The data</p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Attacks on churches are rising
+              Hostility toward churches is rising.
             </h2>
           </Reveal>
 
